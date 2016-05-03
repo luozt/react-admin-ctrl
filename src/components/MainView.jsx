@@ -8,21 +8,31 @@
   var hashHistory = require('hashHistory', "router");
 
   var Content = require('Content');
-  var Home = require('Home');
-  var Admin = require('Admin');
-  var Message = require('Message');
+  var ViewHome = require('ViewHome');
+  var ViewStat = require('ViewStat');
+  var ViewManage = require('ViewManage');
+  var ViewMessage = require('ViewMessage');
+
+  var Banner = require("Banner");
+  var LoginModal = require("LoginModal");
+  var WorkForm = require("WorkForm");
+  var Topbar = require("Topbar");
 
   var MainView = React.createClass({
     render: function(){
       return (
         <div>
+          <Banner />
           <Router history={hashHistory}>
             <Route path="/" component={Content}>
-              <IndexRoute component={Home} />
-              <Route path="admin/:department" component={Admin} />
-              <Route path="message" component={Message} />
+              <IndexRoute component={ViewHome} />
+              <Route path="manage" component={ViewManage} />
+              <Route path="stat" component={ViewStat} />
+              <Route path="message" component={ViewMessage} />
             </Route>
           </Router>
+          <LoginModal />
+          <WorkForm />
         </div>
       );
     }

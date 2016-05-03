@@ -60,7 +60,7 @@
       });
     },
     handleLogin: function(){
-      AppProvider.publish("change.LoginModal.show", true);
+      AppProvider.publish("update.LoginModal.visibility", true);
     },
     render: function(){
       var isLogined = this.state.isLogined;

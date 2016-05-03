@@ -6,13 +6,14 @@
     window._exports = exports;
   }
 
-  window.Components = {};
+  window.__Globals__ = {};
+  window.__Globals__.Components = {};
 
   window.require = function(module, source){
     var dist;
     switch(source){
       case undefined:
-        dist = window.Components[module];
+        dist = window.__Globals__.Components[module];
         break;
       case "bootstrap":
         dist = ReactBootstrap[module];
@@ -21,7 +22,8 @@
         dist = ReactRouter[module];
         break;
       case "window":
-        dist = window[module];
+      case "globals":
+        dist = window.__Globals__[module];
         break;
       default:
         dist = null;
@@ -33,6 +35,6 @@
   };
 
   window.exports = function(module, result){
-    window.Components[module] = result;
+    window.__Globals__.Components[module] = result;
   };
 })();

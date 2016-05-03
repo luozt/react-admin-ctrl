@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>react admin demo</title>
+  <title>react admin ctrl</title>
   <!-- seo -->
   <meta name="keywords" content="react">
   <meta name="description" content="A admin system based on React">
@@ -23,28 +23,34 @@
     <p class="text-center bg-info">加载中...</p>
   </div>
 
-
   <!-- lib -->
   <script src="lib/jquery-2.2.3.js"></script>
   <script src="lib/bootstrap/js/bootstrap.js"></script>
+  <script src="lib/jquery-ui/js/pkg.jquery-ui-datepicker.js"></script>
   <script src="lib/react.js"></script>
   <script src="lib/react-dom.js"></script>
-  <!-- <script src="lib/react-with-addons.js"></script> -->
   <script src="lib/react-bootstrap.js"></script>
   <script src="lib/ReactRouter.min.js"></script>
+  <script src="lib/socket.io-1.4.5.js"></script>
   <script src="lib/browser.min.js"></script>
 
-  <!-- Components -->
+  <!-- base & config -->
   <script src="js/base.js"></script>
   <script src="js/config.js"></script>
+  <script src="js/helper.js"></script>
   <script src="js/provider.js"></script>
+
+  <!-- Components -->
+  <script type="text/babel" src="directives/Datepicker.jsx"></script>
   <script type="text/babel" src="Components/Banner.jsx"></script>
   <script type="text/babel" src="Components/LoginModal.jsx"></script>
+  <script type="text/babel" src="Components/WorkForm.jsx"></script>
   <script type="text/babel" src="Components/Navbar.jsx"></script>
   <script type="text/babel" src="Components/Topbar.jsx"></script>
-  <script type="text/babel" src="Components/Home.jsx"></script>
-  <script type="text/babel" src="Components/Admin.jsx"></script>
-  <script type="text/babel" src="Components/Message.jsx"></script>
+  <script type="text/babel" src="Components/ViewHome.jsx"></script>
+  <script type="text/babel" src="Components/ViewManage.jsx"></script>
+  <script type="text/babel" src="Components/ViewStat.jsx"></script>
+  <script type="text/babel" src="Components/ViewMessage.jsx"></script>
   <script type="text/babel" src="Components/Content.jsx"></script>
   <script type="text/babel" src="Components/MainView.jsx"></script>
   <script type="text/babel" src="js/app.jsx"></script>

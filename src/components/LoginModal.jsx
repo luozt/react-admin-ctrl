@@ -7,26 +7,23 @@
     getInitialState: function(){
       return {showModal: false};
     },
-    componentDidUpdate: function(prevProps, prevState){
-      this.refs["LoginModal_username"].value = "";
-      this.refs["LoginModal_pass"].value = "";
-    },
     componentWillMount: function(){
-      AppProvider.subscribe("change.LoginModal.show", function(data) {
+      AppProvider.subscribe("update.LoginModal.visibility", function(event, data) {
         this.setState({showModal: !!data});
       }.bind(this));
     },
     componentWillUnmount: function() {
-      AppProvider.unsubscribe("change.LoginModal");
+      AppProvider.unsubscribe("update.LoginModal");
     },
     close: function(){
       this.setState({showModal: false});
     },
-    handleSubmit: function(){
+    handleSubmit: function(e){
       var username = this.refs["LoginModal_username"].value;
       AppProvider.saveLogin(username);
       AppProvider.publish("update.app.login");
       this.setState({showModal: false});
+      e.preventDefault();
     },
     render: function(){
       return (

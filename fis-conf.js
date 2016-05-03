@@ -2,7 +2,7 @@
 /*配置选项
 -------------------------*/
 // 测试域名
-fis.set("cdn-path", "http://10.0.0.26:8087/example-managementsite");
+fis.set("cdn-path", "http://localhost:3000/");
 
 // 正式环境域名
 fis.set("cdn-path-release", "http://www.example.com");
@@ -37,7 +37,14 @@ fis.config.set('settings.parser.jade', {
 });
 
 fis.config.set('project.fileType.text', 'jsx'); //*.jsx files are text file.
+fis.config.set('modules.parser.jsx', 'react');  //compile *.jsx with fis-parser-react plugin
 fis.config.set('roadmap.ext.jsx', 'js');        //*.jsx are exactly treat as *.js
+
+
+fis.match("src/**.jsx", {
+  parser: fis.plugin("reactjs"),
+  rExt: ".js"
+});
 
 fis.match("src/css/**.less", {
   parser: fis.plugin("less"),
@@ -100,14 +107,14 @@ fis
   });
 
 // 打包共用的js
-fis.match("src/**/pkg.**.{coffee,js}", {
-  packTo: "src/pkg/autocombined.js"
-});
+// fis.match("src/**/pkg.**.{coffee,js}", {
+//   packTo: "src/pkg/autocombined.js"
+// });
 
-// 打包共用的css
-fis.match("src/**/pkg.**.{less,css}", {
-  packTo: "src/pkg/autocombined.css"
-});
+// // 打包共用的css
+// fis.match("src/**/pkg.**.{less,css}", {
+//   packTo: "src/pkg/autocombined.css"
+// });
 
 /*编译a标签href指向资源路径
 -------------------------*/
@@ -150,6 +157,9 @@ fis.media('lc')
   // 模板发布到服务器后以相对服务器的路径进行配置
   .match("src/**/*.{jade,html}", {
     relative: "/src"
+  })
+  .match('src/(**)',{
+    release:"$1"
   });
 
 // 测试环境
