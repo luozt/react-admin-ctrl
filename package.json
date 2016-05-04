@@ -1,6 +1,6 @@
 {
   "name": "react-admin-ctrl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An admin ctrl system based on ReactJS",
   "dependencies": {
     "express": "^4.10.2",
