@@ -6,7 +6,7 @@
 
   var App = React.createClass({
     componentDidMount: function(prevProps, prevState){
-      MessageListen.init();
+      // MessageListen.init();
     },
     render: function(){
       return (
@@ -16,7 +16,7 @@
   });
 
   // 消息推送模块
-  var MessageListen = {
+/*  var MessageListen = {
     subscribe: function(){
       // APP载入后开始监听消息推送
       AppProvider.subscribe("update.message.new", function(event, data){
@@ -41,7 +41,7 @@
       this.subscribe();
       this.listen();
     }
-  };
+  };*/
 
   ReactDOM.render(
     <App />

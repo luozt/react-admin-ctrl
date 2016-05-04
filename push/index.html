@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>message push</title>
+
+  <!-- page meta -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+</head>
+<body>
+
+  <p>正在接收消息列表：</p>
+
+  <ul id="list">
+
+  </ul>
+
+  <!-- lib -->
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+  <script>
+    var socket = io();
+
+    socket.on('message', function(msg){
+      $('#list').append($('<li>').text(msg));
+    });
+  </script>
+
+</body>
+</html>
