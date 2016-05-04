@@ -12,12 +12,6 @@ fis.set("cdn-path-push", "http://10.0.0.26/res");
 fis.set("http-push-receiver", "http://10.0.0.26/receiver.php");
 fis.set("http-push-to", "/usr/share/nginx/html/res");
 
-/*用户自定义配置
--------------------------*/
-// 打包go文件
-fis.match("src/js/go.**.{coffee,js}", {
-  packTo: "src/pkg/go.js"
-});
 
 /*统一配置
 (开发者无需修改，特殊情况除外)
@@ -40,9 +34,8 @@ fis.config.set('project.fileType.text', 'jsx'); //*.jsx files are text file.
 fis.config.set('modules.parser.jsx', 'react');  //compile *.jsx with fis-parser-react plugin
 fis.config.set('roadmap.ext.jsx', 'js');        //*.jsx are exactly treat as *.js
 
-
 fis.match("src/**.jsx", {
-  parser: fis.plugin("reactjs"),
+  parser: fis.plugin("react"),
   rExt: ".js"
 });
 
@@ -137,10 +130,16 @@ fis.match('src/**.{jade,html}', {
 fis.media('lc')
   .hook("relative")
   .match("::package", {
-    postpackager: fis.plugin('loader')
+    postpackager: fis.plugin('loader', {
+      allInOne: true
+    })
   })
   .match('**.{css,less}', {
-    useSprite: true
+    useSprite: true,
+    optimizer: fis.plugin('clean-css')
+  })
+  .match('**.{js,coffee}',{
+    optimizer: fis.plugin('uglify-js')
   })
   .match("**.png", {
     optimizer: fis.plugin("png-compressor", {
