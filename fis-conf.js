@@ -60,28 +60,6 @@ fis.match("_**", {
 });
 
 
-/*把每个页面引入的JS/CSS都打包成一个文件
-* 但由于lib文件是不改的，业务js则经常改
-* 所以不建议这么做
-
-fis.match("::package", {
-  postpackager: fis.plugin("loader", {
-    allInOne: true
-  })
-});
-
-// 这是指定打包js的路径
-fis.match("::package", {
-  postpackager: fis.plugin("loader", {
-    allInOne: {
-      js: "src/pkg/${filepath}_aio.js"
-    }
-  })
-});
-
-*/
-
-
 fis
   .match('**.{js,coffee,html,jade,css,less,png,jpg,jpeg,gif,mp3,mp4,flv,swf,svg,eot,ttf,woff,woff2}', {
     useHash: false
@@ -120,6 +98,28 @@ fis.match('src/**.{jade,html}', {
     });
   })
 });
+
+/*把每个页面引入的JS/CSS都打包成一个文件
+* 但由于lib文件是不改的，业务js则经常改
+* 所以不建议这么做
+
+fis.match("::package", {
+  postpackager: fis.plugin("loader", {
+    allInOne: true
+  })
+});
+
+// 这是指定打包js的路径
+fis.match("::package", {
+  postpackager: fis.plugin("loader", {
+    allInOne: {
+      js: "src/pkg/${filepath}_aio.js"
+    }
+  })
+});
+
+*/
+
 
 /*本地打包（相对路径）
   测试环境打包（绝对路径）
