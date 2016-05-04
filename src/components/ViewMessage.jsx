@@ -26,7 +26,7 @@
     render: function(){
       return (
         <div className="panel-body">
-          <p className="text-info">10秒内会随机接收到会话消息：</p>
+          <p className="text-info">每个随机10秒会接收到服务器端推送的消息：</p>
           <table className="table table-bordered table-hover">
             <thead>
               <tr>
@@ -83,7 +83,7 @@
             return (
               <tr key={item.id}>
                 <td>{index+1}</td>
-                <td>{Helper.time2str(item.createTime)}</td>
+                <td>{Helper.time2str(item.createTime, "sec")}</td>
                 <td>{item.msg}</td>
               </tr>
             );

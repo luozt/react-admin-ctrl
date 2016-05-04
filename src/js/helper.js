@@ -30,8 +30,9 @@
 
   // Helper tool
   var Helper = {
-    time2str: function(timevalue) {
-      var d, dat, fnZero, hr, min, month, year;
+    time2str: function(timevalue, minUnit) {
+      var d, dat, fnZero, hr, min, month, year, sec;
+      var minUnit = minUnit || "min";
       if (!timevalue) {
         return timevalue;
       }
@@ -48,7 +49,13 @@
       dat = fnZero(d.getDate());
       hr = fnZero(d.getHours());
       min = fnZero(d.getMinutes());
-      return [year, "-", month, "-", dat, " ", hr, ":", min].join("");
+      sec = fnZero(d.getSeconds());
+      switch(minUnit){
+        case "sec":
+          return [year, "-", month, "-", dat, " ", hr, ":", min, ":", sec].join("");
+        default:
+          return [year, "-", month, "-", dat, " ", hr, ":", min].join("");
+      }
     }
   };
 
