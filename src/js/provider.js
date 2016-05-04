@@ -234,13 +234,7 @@
       var callback = callback || function(){};
 
       var mainFunc = function(){
-        var username = this.getLogin();
-
-        if(!username){
-          return callback({err: AppConfig.errNotLogined});
-        }
-
-        var origData = this.getStorageItem("database.message") || {};
+        var origData = this.getStorageItem("database.message", "session") || {};
         var arrData = [];
 
         for(var key in origData){
@@ -258,13 +252,7 @@
       var callback = callback || function(){};
 
       var mainFunc = function(){
-        var username = this.getLogin();
-
-        if(!username){
-          return callback({err: AppConfig.errNotLogined});
-        }
-
-        var origData = this.getStorageItem("database.message") || {};
+        var origData = this.getStorageItem("database.message", "session") || {};
         var nowValue = (new Date()).valueOf();
         var id = Math.guid();
         var saveData = {
@@ -275,7 +263,7 @@
         };
         origData[id] = saveData;
 
-        this.setStorageItem("database.message", origData);
+        this.setStorageItem("database.message", origData, "session");
         callback(saveData);
       }.bind(this);
 
@@ -297,7 +285,7 @@
     },
 
     // 封装的保存数据操作
-    setStorageItem: function(key, value){
+    setStorageItem: function(key, value, isSession){
       var saveValue;
       if("object" === typeof value && null !== value){
         saveValue = {
@@ -310,10 +298,21 @@
           realValue: value
         }
       }
-      localStorage.setItem("react-admin-ctrl."+key, JSON.stringify(saveValue));
+      if("session" !== isSession){
+        localStorage.setItem("react-admin-ctrl."+key, JSON.stringify(saveValue));
+      }else{
+        sessionStorage.setItem("react-admin-ctrl."+key, JSON.stringify(saveValue));
+      }
     },
-    getStorageItem: function(key){
-      var oriValue = localStorage.getItem("react-admin-ctrl."+key);
+    getStorageItem: function(key, isSession){
+      var oriValue;
+
+      if("session" !== isSession){
+        oriValue = localStorage.getItem("react-admin-ctrl."+key);
+      }else{
+        oriValue = sessionStorage.getItem("react-admin-ctrl."+key);
+      }
+
       if(!oriValue){return oriValue;}
       var saveValue = JSON.parse(oriValue);
       var realValue;

@@ -26,6 +26,7 @@
     render: function(){
       return (
         <div className="panel-body">
+          <p className="text-info">10秒内会随机接收到会话消息：</p>
           <table className="table table-bordered table-hover">
             <thead>
               <tr>
