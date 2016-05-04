@@ -8,7 +8,7 @@
 
 先安装[nodejs](https://nodejs.org/),利用nodejs的插件来进行开发：
 
-1. 安装FIZ：`npm i -g fiz`，必须为-g全局安装。fiz插件刚刚更新，如果之前安装了，请先更新`npm update -g fiz`
+1. 安装FIZ：`npm i -g fiz`，必须为-g全局安装。fiz插件最近更新了(2016-05-04 12:00)，如果之前安装了，请先更新`npm update -g fiz`
 2. 安装插件：`npm i`
 3. 启动fiz服务器： `fiz server start`, 将自动打开127.0.0.1:8080端口进行调试和预览
 4. 编译项目并监听变化：本地调试预览：`fiz release -w`
