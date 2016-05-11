@@ -28,9 +28,13 @@ __PS：部署到heroku需进行本地打包。__
 本项目使用fis3前端构建工具，但已通过封装为**FIZ**插件，故请按照以下步骤进行环境安装及预览：
 
 1. 安装插件：`npm i`
-2. 进入开发：`npm run dev`
+2. 进入前端系统的开发：`npm run dev`
 
-注：进入开发环境的系统，会轮询的报socket.io的错误，是由于没有开发环境的socket服务引起的。这是个正常现象，因为已在`index.js`配置了针对本地打包后的环境的socket服务，只要项目进行本地打包发布后，启动`npm start`进入发布后的环境即为正常运行状态。如果开发过程中，不想看到这个报错，想临时停止客户端的socket，可在`src/js/app.jsx`里的`App.componentDidMount`方法里注释掉`MessageListen.init()`
+注：进入前端系统的开发，会轮询的报socket.io的错误，是由于没有开发环境的socket服务引起的。这是个正常现象，因为已在`index.js`配置了针对本地打包后的环境的socket服务，只要项目进行本地打包发布后，启动`npm start`进入发布后的环境即为正常运行状态。如果开发过程中，不想看到这个报错，想临时停止客户端的socket，可在`src/js/app.jsx`里的`App.componentDidMount`方法里注释掉`MessageListen.init()`
+
+**启动后台服务**
+
+运行：`npm start`
 
 **本地打包发布**
 
