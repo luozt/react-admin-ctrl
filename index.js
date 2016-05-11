@@ -4,6 +4,8 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+app.set('port', (process.env.PORT || 5000));
+
 app.use(express.static(path.join(__dirname, "lc")));
 
 app.get('/', function(req, res){
@@ -14,8 +16,8 @@ io.on('connection', function(){
   console.log('a user connected');
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+http.listen(app.get("port"), function(){
+  console.log('listening on *:'+app.get("port"));
   var count = 0;
 
   var timerMsgPush = function(){

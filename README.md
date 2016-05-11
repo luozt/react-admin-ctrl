@@ -6,11 +6,20 @@
 
 ##系统发布及运行
 
-1. 安装fiz全局插件：`npm i -g fiz`
-2. 安装项目依赖插件：`npm i`
-3. 系统发布：`fiz release lc`
-4. 系统启动：`npm start`
-5. 系统运行：打开<http://127.0.0.1:3000/>
+**在线预览**
+
+已把APP部署到heroku上了，可直接点击 [heroku 预览地址](https://react-admin-ctrl.herokuapp.com/) 进行在线预览使用。
+
+**本地预览**
+
+1. 安装项目依赖插件：`npm i`
+2. 系统发布：`npm run build`
+3. 系统启动：`npm start`
+4. 系统运行：打开<http://127.0.0.1:5000/>
+
+__PS：部署到heroku需进行本地打包。__
+
+由于fis3/fis3插件对linux系统支持得不是很好，导致heroku的linux服务器在执行`npm run build`发布命令时有异常，故现在要提交修改到heroku，需在进行修改后，本地系统发布后把发布出来的`lc`文件夹也提交上git。等以后FEX-TEAM把fis3更完善就可省略掉这一步了。
 
 ##系统开发与调试
 
@@ -18,24 +27,18 @@
 
 本项目使用fis3前端构建工具，但已通过封装为**FIZ**插件，故请按照以下步骤进行环境安装及预览：
 
-先安装[nodejs](https://nodejs.org/),利用nodejs的插件来进行开发：
-
-1. 安装FIZ：`npm i -g fiz`，必须为-g全局安装。fiz插件最近更新了(2016-05-04 12:00)，如果之前安装了，请先更新`npm update -g fiz`
-2. 安装插件：`npm i`
-3. 启动fiz服务器： `fiz server start`, 将自动打开127.0.0.1:8080端口进行调试和预览
-4. 编译项目并监听变化：本地调试预览：`fiz release -w`
-5. 输入网址<http://127.0.0.1:8080/src/>，点击确定进入系统
+1. 安装插件：`npm i`
+2. 进入开发：`npm run dev`
 
 注：进入开发环境的系统，会轮询的报socket.io的错误，是由于没有开发环境的socket服务引起的。这是个正常现象，因为已在`index.js`配置了针对本地打包后的环境的socket服务，只要项目进行本地打包发布后，启动`npm start`进入发布后的环境即为正常运行状态。如果开发过程中，不想看到这个报错，想临时停止客户端的socket，可在`src/js/app.jsx`里的`App.componentDidMount`方法里注释掉`MessageListen.init()`
 
 **本地打包发布**
 
-打包命令：`fiz release lc`
+打包命令：`npm run build`
 
 本地打包为打包出一个相对路径的版本，它将css合并成1个文件，将js合并为1个文件，并压缩为最小，减少HTTP体积和请求数。
 
-打包后的路径为：`/lc/`
-
+打包后的路径为：`<project_path>/lc/`
 
 ##开发过程中的不足
 
@@ -58,6 +61,6 @@ fis-conf.js                             // fis3配置文件
 |
 index.js                                // node实现的后台主程序
 |
-src/                                    // 存放后台管理系统
+src/                                    // 存放后台管理系统前端文件
 ```
 

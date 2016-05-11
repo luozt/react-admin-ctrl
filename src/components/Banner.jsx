@@ -13,7 +13,7 @@
               <button className="navbar-toggle collapsed"
                 data-toggle="collapse"
                 data-target="#navbar_collapse">
-                <span>切换折叠</span>
+                <span className="sr-only">切换折叠</span>
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
