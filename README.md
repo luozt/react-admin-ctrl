@@ -13,6 +13,7 @@
 **本地预览**
 
 1. 安装项目依赖插件：`npm i`
+2. 更改server环境`/index.js`的env为`var env = "qa"`
 2. 系统发布：`npm run build-qa`
 3. 系统启动：`npm start`
 4. 系统运行：打开<http://localhost:5000/>

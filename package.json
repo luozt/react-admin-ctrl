@@ -29,8 +29,8 @@
     "react-loader": "^2.4.0"
   },
   "engines": {
-    "node": "4.x",
-    "npm": "2.x"
+    "node": "5.x",
+    "npm": "3.x"
   },
   "main": "index.js",
   "scripts": {
