@@ -43,6 +43,5 @@
 
   };
 
-  // exports
-  window.__Globals__.AppConfig = AppConfig;
+  module.exports = AppConfig;
 })();

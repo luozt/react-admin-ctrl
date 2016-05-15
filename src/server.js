@@ -4,17 +4,14 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-// 根据打包版本来配置环境
-// 测试环境 env = "qa"
-// 正式环境 env = "pr"
-var env = "pr";
+var ENV = __NODE_ENV;
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(path.join(__dirname, env)));
+app.use(express.static(path.join(__dirname, "./")));
 
 app.get('/', function(req, res){
-  res.sendFile(path.join(__dirname, env+"/index.html"));
+  res.sendFile(path.join(__dirname, "./index.html"));
 });
 
 io.on('connection', function(){

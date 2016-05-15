@@ -60,5 +60,5 @@
   };
 
   // exports
-  window.__Globals__.Helper = Helper;
+  module.exports = Helper;
 })();

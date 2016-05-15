@@ -13,13 +13,9 @@
 **本地预览**
 
 1. 安装项目依赖插件：`npm i`
-2. 系统发布：`npm run build`
+2. 系统发布：`npm run build-qa`
 3. 系统启动：`npm start`
-4. 系统运行：打开<http://127.0.0.1:5000/>
-
-__PS：部署到heroku需进行本地打包。__
-
-由于fis3/fis3插件对linux系统支持得不是很好，导致heroku的linux服务器在执行`npm run build`发布命令时有异常，故现在要提交修改到heroku，需在进行修改后，本地系统发布后把发布出来的`lc`文件夹也提交上git。等以后FEX-TEAM把fis3更完善就可省略掉这一步了。
+4. 系统运行：打开<http://localhost:5000/>
 
 ##系统开发与调试
 
@@ -40,9 +36,14 @@ __PS：部署到heroku需进行本地打包。__
 
 打包命令：`npm run build`
 
-本地打包为打包出一个相对路径的版本，它将css合并成1个文件，将js合并为1个文件，并压缩为最小，减少HTTP体积和请求数。
+它将打包出一个正式环境的版本，将css合并成1个文件，将js合并为1个文件，并压缩为最小，减少HTTP体积和请求数。
 
-打包后的路径为：`<project_path>/lc/`
+打包后的路径为：`<project_path>/pr/`
+
+**打包前进行的环境配置**
+
+* fis-conf.js：`"cdn-path-release"`资源域名配置
+* index.js：`env`的环境配置
 
 ##开发过程中的不足
 
