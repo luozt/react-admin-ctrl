@@ -29,14 +29,15 @@
     "react-loader": "^2.4.0"
   },
   "engines": {
-    "node": "5.x",
-    "npm": "3.x"
+    "node": "4.x",
+    "npm": "2.x"
   },
   "main": "index.js",
   "scripts": {
     "dev": "fiz server start && fiz release -w",
     "build": "fiz release pr",
     "build-qa": "fiz release qa",
+    "build-lc": "fiz release lc",
     "postinstall": "npm run build",
     "start": "node index.js",
     "stop": "fiz server stop && fiz server clean",

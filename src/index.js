@@ -13,4 +13,4 @@ window.ReactDOM = require("react-dom");
 window.ReactBootstrap = require("./lib/react-bootstrap.js");
 window.ReactRouter = require("./lib/ReactRouter.min.js");
 
-require("./comp/app.jsx");
+require("./comp/App.jsx");

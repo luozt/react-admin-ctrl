@@ -141,7 +141,7 @@ fis.match("_**", {
 
 
 fis
-  .match('**.{js,coffee,html,jade,css,less,png,jpg,jpeg,gif,mp3,mp4,flv,swf,svg,eot,ttf,woff,woff2}', {
+  .match('**.{js,jsx,es,ts,tsx,coffee,html,jade,css,less,png,jpg,jpeg,gif,mp3,mp4,flv,swf,svg,eot,ttf,woff,woff2}', {
     useHash: false
   })
   .match('**.{css,less}', {
@@ -270,7 +270,7 @@ fis.media("qa")
       })
     ]
   })
-  .match('**.{js,coffee,html,jade,css,less,png,jpg,jpeg,gif,mp3,mp4,flv,swf,svg,eot,ttf,woff,woff2}', {
+  .match('**.{js,jsx,es,ts,tsx,coffee,html,jade,css,less,png,jpg,jpeg,gif,mp3,mp4,flv,swf,svg,eot,ttf,woff,woff2}', {
     domain: fis.get("cdn-path"),
     useHash: true
   })
@@ -311,7 +311,7 @@ fis.media("pr")
       })
     ]
   })
-  .match('**.{js,coffee,html,jade,css,less,png,jpg,jpeg,gif,mp3,mp4,flv,swf,svg,eot,ttf,woff,woff2}', {
+  .match('**.{js,jsx,es,ts,tsx,coffee,html,jade,css,less,png,jpg,jpeg,gif,mp3,mp4,flv,swf,svg,eot,ttf,woff,woff2}', {
     domain: fis.get("cdn-path-release"),
     useHash: true
   })
@@ -351,7 +351,7 @@ fis.media("pr")
 
 // 直接发布文件到远端
 fis.media("pu")
-  .match('**.{js,coffee,html,jade,css,less,png,jpg,jpeg,gif,mp3,mp4,flv,swf,svg,eot,ttf,woff,woff2}', {
+  .match('**.{js,jsx,es,ts,tsx,coffee,html,jade,css,less,png,jpg,jpeg,gif,mp3,mp4,flv,swf,svg,eot,ttf,woff,woff2}', {
     domain: fis.get("cdn-path-push"),
     useHash: true
   })
