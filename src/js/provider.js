@@ -1,7 +1,7 @@
 (function(){
-  var AppConfig = require("./config.js");
+  var AppConfig = require("AppConfig", "globals");
 
-  var workerValidateFilterSrc = __uri("unmod.worker_validate_filter.js"), workerValidateFilter;
+  var workerValidateFilterSrc = __uri("worker_validate_filter.js"), workerValidateFilter;
 
   var AppProvider = {
     /**
@@ -326,5 +326,5 @@
   };
 
   // exports
-  module.exports = AppProvider;
+  window.__Globals__.AppProvider = AppProvider;
 })();
