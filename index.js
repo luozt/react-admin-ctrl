@@ -7,7 +7,8 @@ var io = require('socket.io')(http);
 // 根据打包版本来配置环境
 // 测试环境 env = "qa"
 // 正式环境 env = "pr"
-var env = "pr";
+// 相对路径 env = "lc"
+var env = "lc";
 
 app.set('port', (process.env.PORT || 5000));
 

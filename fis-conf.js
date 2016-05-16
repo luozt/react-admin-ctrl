@@ -36,7 +36,7 @@ fis.hook("commonjs", {
   extList: ['.js', '.jsx', '.es', '.ts', '.tsx']
 });
 // our module loader 
-fis.match('/node_modules/fis-mod/mod.js', {
+fis.match('/node_modules/**/fis-mod/mod.js', {
   wrap: false
 });
 // !!REQUIRED
