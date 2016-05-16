@@ -10,7 +10,7 @@
     "babel-runtime": "^6.6.1",
     "bootstrap": "^3.3.6",
     "express": "^4.10.2",
-    "fiz": "^1.3.3",
+    "fiz": "^1.4.1",
     "jquery": "^2.2.3",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
